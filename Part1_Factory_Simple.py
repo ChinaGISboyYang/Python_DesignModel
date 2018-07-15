@@ -1,15 +1,3 @@
-# # coding=utf-8
-# class A(object):
-#     pass
-#
-#
-# if __name__ == '__main__':
-#     a = A()
-#     b = A()
-#
-#     print(id(a) == id(b))
-#     print(a, b)
-
 import xml.etree.ElementTree as etree
 import json
 
@@ -40,7 +28,7 @@ def connection_factory(filepath):
     elif filepath.endswith('wml'):
         connector = XMLConnector
     else:
-        raise ValueError('Cannot connect to { }'.format(filepath))
+        raise ValueError('Cannot connect to {}'.format(filepath))
     return connector(filepath)
 
 
@@ -59,7 +47,7 @@ def main():
 
     xml_factory = connect_to('data/madata.xml')
     xml_data = xml_factory.parsed_data
-    liars = xml_data.findall(".//{}[{} = { }]".format('person', 'lastName', 'Liar'))
+    liars = xml_data.findall(".//{}[{} = {}]".format('person', 'lastName', 'Liar'))
     print('found: {} persons'.format(len(liars)))
     for liar in liars:
         print('first name: { }'.format(liar.find('firstName').text))

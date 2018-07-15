@@ -11,7 +11,7 @@
     优化应用的性能和资源占用时
 '''
 class Frog:
-    def __init__(self, name):
+    def __init__(self, name): 
         self.name = name
 
     def __str__(self):
